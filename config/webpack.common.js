@@ -1,11 +1,16 @@
-const path = require("path");
 const HTMLWebPackPlugin = require('html-webpack-plugin');
 
+const path = require("path");
+
+/**@type {import('webpack').Configuration} */
 module.exports = {
-  entry: "./src/app.js",
+  entry: "./src/index.js",
+  // entry: [path.src + 'index.js'],
   output:  {
-    filename: "build.js",
-    path: path.resolve(__dirname, "dist"),
+    // filename: "build.js",
+    path: path.resolve(__dirname, "../dist"),
+    filename: "[name].[contenthash].js",
+    publicPath: "",
   },
   module: {
     rules: [

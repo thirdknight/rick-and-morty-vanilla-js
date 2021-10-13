@@ -12,3 +12,6 @@ npm i sass sass-loader style-loader css-loader -D
 //install html webpack
 npm i html-webpack-plugin -D
 
+// install webpack dev-server and merge for dev and production
+npm i webpack-dev-server webpack-merge -D
+
