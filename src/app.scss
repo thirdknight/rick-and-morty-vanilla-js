@@ -1,13 +1,16 @@
-$labelColor: greenyellow;
+$labelColor: blue;
 
-// .app {
-//   label {
-//     color: $labelColor;
-//   }
-// } 
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
 
 body {
-  label {
-    color: $labelColor;
-  }
-} 
+  font-family: sans-serif;
+  font-size: 1rem;
+  color: $labelColor;
+  background: url("./landscape.jpg") no repeat;
+  background-size: cover;
+  height: 100vh;
+}
+

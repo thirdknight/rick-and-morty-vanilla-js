@@ -1,3 +1,4 @@
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
 
@@ -10,6 +11,10 @@ const proConfig = {
       use: "babel-loader",
       test: /.(js)$/,
       exclude: /node_modules/
+      },
+      {
+        test: /\.(css|scss|sass)$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       }
     ]
   },
@@ -18,7 +23,8 @@ const proConfig = {
     splitChunks: {
       chunks: "all",
     }
-  }
+  },
+  plugins: [new MiniCssExtractPlugin()],
 }
 
 module.exports = merge(common, proConfig);
