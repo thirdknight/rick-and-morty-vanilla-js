@@ -4,6 +4,6 @@ export default class API {
     const data = await response.json()
     return data
     // .then((response) => response.json())
-    //   .then((data) => data)
+    // .then((data) => console.log(data))
   }
 }

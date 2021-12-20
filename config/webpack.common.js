@@ -1,33 +1,50 @@
-const HTMLWebPackPlugin = require('html-webpack-plugin');
 
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HTMLWebPackPlugin = require('html-webpack-plugin');
 const path = require("path");
 
 /**@type {import('webpack').Configuration} */
 module.exports = {
   entry: "./src/index.js",
-  // entry: [path.src + 'index.js'],
   output:  {
-    // filename: "build.js",
     path: path.resolve(__dirname, "../dist"),
-    filename: "[name].[contenthash].js",
+    // filename: "[name].[contenthash].js",
+    assetModuleFilename: "images/[name][ext][query]",
+    filename: "[name].js",
     publicPath: "",
   },
   module: {
     rules: [
       {
+        use: "babel-loader",
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+      },
+      {
         use: ["style-loader", "css-loader", "sass-loader"],
         test: /\.(css|scss|sass)$/,
       },
       {
-        type: "asset",
+        type: "asset/resource",
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
       },
+       // Fonts and SVGs: Inline files
+      { 
+        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline'
+      }
+
     ]
   },
+  resolve: {
+    extensions: [".js", ".json", ".jsx"],
+  },
   plugins: [
+    new CleanWebpackPlugin(),
     new HTMLWebPackPlugin({
-      filename: "index.html",
-      template: "./index.html",
+      template: "./src/template.html", //filename
+      filename: "index.html", //output
+
+      
     }),
   ],
   // mode: "development",

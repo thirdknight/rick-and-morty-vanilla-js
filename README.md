@@ -1,3 +1,5 @@
+Web App using the rick and morty API in Vanilla js
+
 // install baber compiler
 npm i @babel/core @babel/preset-env @babel/plugin-proposal-class-properties babel-loader -D 
  
