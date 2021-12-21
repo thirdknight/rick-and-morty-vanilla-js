@@ -1,22 +1,22 @@
 Web App using the rick and morty API in Vanilla js
 
-// install baber compiler
+Install baber compiler
 npm i @babel/core @babel/preset-env @babel/plugin-proposal-class-properties babel-loader -D 
  
  npm i webpack webpsck-cli -D
  npm i lodash-es  
 
- //build dist Folde
+ Build dist Folde
  npm run build
 
-//install loaders
+Install loaders
 npm i sass sass-loader style-loader css-loader -D
 
-//install html webpack
+Install html webpack
 npm i html-webpack-plugin -D
 
-// install webpack dev-server and merge for dev and production
+Install webpack dev-server and merge for dev and production
 npm i webpack-dev-server webpack-merge -D
 
-// instal polify
+Instal polify
 npm i core-js
