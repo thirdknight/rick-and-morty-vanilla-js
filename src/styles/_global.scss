@@ -43,7 +43,6 @@ body {
 }
 .asset.bottom {
   grid-area: asset-bottom;
-  border: 1px solid green;
   grid-area: asset-bottom;
   justify-content: flex-end;
 }
@@ -74,7 +73,6 @@ body {
   margin-inline: 15px;
 }
 .logo {
-  border: 1px solid red;
   grid-area: logo;
   max-width: 100%; 
   margin: 0 auto 2em;
@@ -85,7 +83,6 @@ body {
   position: relative;
   z-index: 2;
   display: grid;
-  // height: calc(100vh - 8em);
   margin: 0 auto;
   padding: 2em;
   column-gap: 1em;
@@ -125,11 +122,8 @@ body {
   position: absolute;
   left: 3px;
   top: calc(100% - 15px);
-  // display: flex;
-  // margin-top: 20px;
 }
 .arrow {
-  border: 1px solid red;
   grid-area: arrow;
   height: 50px;
   background-image: url('../images/arrow.svg');
@@ -138,7 +132,6 @@ body {
   cursor: pointer;
 }
 .social {
-  border: 1px solid green;
   grid-area: social;
   margin-top: 2em;
   text-align: center;
@@ -160,32 +153,23 @@ body {
   text-transform: uppercase;
 }
 .navigation.name {
-  border: 1px solid red;
   grid-area: name;
 }
 .navigation.about {
-  border: 1px solid red;
   grid-area: about;
 }
-
 .character-name-container {
   grid-area: character-name;
-  border: 1px solid blue;
   margin-top: 1em;
   display: flex;
   align-items: center;
   justify-content: center;
-  // display: flex;
-  // align-items: center;
-  // padding-inline-start: 1em;
 }
-.character-description-container {
-  border: 1px solid red; 
+.character-description-container { 
   grid-area: character-description;
 }
 .character-image-container {
   grid-area: avatar;
-  border: 1px solid red; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -200,13 +184,11 @@ body {
   .learn-more {
     display: flex;
   }
-  // .character-name h2::after {
-  //   top: 50%;
-  //   left: revert;
-  //   margin-left: 5px;
-  // }
   .character-name-container {
     justify-content: start;
+  }
+  .arrow {
+    background-position: left;
   }
   .grid {
     column-gap: 4em;
