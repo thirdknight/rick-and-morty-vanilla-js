@@ -2,20 +2,16 @@
   font-family: 'Inter';
   src: url('../fonts/Inter.ttf');
 }
-
 body {
   margin: 0;
-  background: var(--color-bg);
+  background-color: var(--color-bg);
   font-family: var(--font-basic);
   font-size: var(--base-font-size);
-  overflow-x: hidden;
   background-image: url('../images/asset-red.svg');
-  background-position: left 200px top;
+  background-position: left 50px top;
   background-repeat: no-repeat;
 }
 .placeholder-container {
-  // max-width: 100vw;
-  overflow: hidden;
   position: fixed;
   left: 0;
   right: 0;
@@ -23,7 +19,7 @@ body {
   bottom: 0;
 }
 .character-name-placeholder {
-  color: rgb(0, 0, 0, .1);
+  color: var(--color-character-name-placeholder);
   font-size: 300px;
   text-transform: uppercase;
   display: flex;
@@ -34,37 +30,33 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;
-  bottom: 0;
-}
-.grid {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  height: calc(100vh - 8em);
-  padding: 4em;
-  grid-column-gap: 8em;
-  grid-template-columns: 50px 1fr 1fr 200px;
-  grid-template-rows: 230px 100px 1fr 1fr 1fr;
-  grid-template-areas: "asset-top logo logo social"
-                       "name character-name avatar avatar"
-                       "about character-description avatar avatar"
-                       "asset-bottom character-text avatar avatar"
-                       "asset-bottom learn-more arrow other-line";
 }
 .asset {
   writing-mode: vertical-rl;
   display: flex;
   align-items: center;
+  display: none;
 }
 .asset.top {
   grid-area: asset-top;
-  // border: 1px solid red;
+  border: 1px solid purple;
 }
 .asset.bottom {
   grid-area: asset-bottom;
-  // border: 1px solid green;
+  border: 1px solid green;
+  grid-area: asset-bottom;
   justify-content: flex-end;
+}
+.learn-more {
+  grid-area: learn-more;
+  display: flex;
+  align-items: flex-start;
+  font-size: 25px;
+  text-transform: uppercase;
+  background-image: url('../images/learn-more.svg');
+  background-repeat: no-repeat;
+  background-position: left 170px top 5px;
+  display: none;
 }
 .dot {
   display: inline-flex;
@@ -74,184 +66,155 @@ body {
   border-radius: 50%;
   margin-inline: 5px;
 }
-.links {
-  writing-mode: vertical-lr;
-}
 .line {
   width: 2px;
   height: 150px;
   background-color: var(--color-black);
   display: inline-flex;
-  margin-inline: 15px
-}
-.wrapper {
-  max-width: 1280px;
-  margin: auto;
-  padding: 0 2em;
+  margin-inline: 15px;
 }
 .logo {
+  border: 1px solid red;
   grid-area: logo;
+  max-width: 100%; 
   margin: 0 auto 2em;
   display: block;
 }
+
+.grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  // height: calc(100vh - 8em);
+  margin: 0 auto;
+  padding: 2em;
+  column-gap: 1em;
+  grid-template-columns: 50px 1fr;
+  grid-template-rows: repeat(6, auto);
+  grid-template-areas: "logo logo"
+                        "name avatar"
+                        "name character-name"
+                        "about character-description"
+                        "arrow arrow"
+                        "social social"                        
+}
+.character-image {
+  max-width: 100%;
+  border-radius: 50%;
+}
+.character-label {
+  background: var(--bg-character-label);
+  padding: 1em;
+  color: var(--color-character-label);
+  border-radius: 10px;
+}
+.character-name {
+  position: relative;
+  font-size: var(--font-size-character-name-basic);
+  text-align: center;
+}
+.character-name h2 {
+  font-weight: 500;
+}
+.character-name h2::after {
+  content: '';
+  width: 87px;
+  height: 5px;
+  background-color: var(--color-character-name-after);
+  display: inline-flex;
+  position: absolute;
+  left: 3px;
+  top: calc(100% - 15px);
+  // display: flex;
+  // margin-top: 20px;
+}
 .arrow {
+  border: 1px solid red;
   grid-area: arrow;
-  // border: 1px solid red;
+  height: 50px;
   background-image: url('../images/arrow.svg');
   background-repeat: no-repeat;
-  background-position: left bottom;
+  background-position: center;
   cursor: pointer;
 }
 .social {
+  border: 1px solid green;
   grid-area: social;
-  a {
-    text-decoration: none;
-  }
-  // border: 1px solid red;
+  margin-top: 2em;
+  text-align: center;
+}
+.social a {
+  text-transform: none;
 }
 .navigation {
-  writing-mode: vertical-rl; 
+  writing-mode: vertical-rl;
   transform: rotate(180deg);
   display: flex;
   align-items: center;
   justify-content: center;
-   a {
-    text-decoration: none;
+}
+.navigation a {
+  text-decoration: none;
   color: var(--color-black);
   font-size: 25px;
   text-transform: uppercase;
-   }
 }
-
 .navigation.name {
+  border: 1px solid red;
   grid-area: name;
-  // border: 1px solid purple;
+}
+.navigation.about {
+  border: 1px solid red;
+  grid-area: about;
 }
 
-.navigation.about {
-  grid-area: about;
-  // border: 1px solid purple;
-}
 .character-name-container {
   grid-area: character-name;
-  // border: 1px solid blue;
+  border: 1px solid blue;
+  margin-top: 1em;
   display: flex;
   align-items: center;
+  justify-content: center;
+  // display: flex;
+  // align-items: center;
   // padding-inline-start: 1em;
 }
 .character-description-container {
+  border: 1px solid red; 
   grid-area: character-description;
 }
 .character-image-container {
   grid-area: avatar;
-  // border: 1px solid red; 
+  border: 1px solid red; 
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.character {
-  text-align: center;
-  &-image {
-    max-width: 100%;
-    border-radius: 50%;
-  }
-  &-name {
-    // grid-area: character-name;
-    position: relative;
-    font-size: var(--font-size-character-name-basic);
-    h2::after {
-      content: '';
-      width: 87px;
-      height: 6px;
-      background-color: var(--color-character-name-after);
-      display: inline-flex;
-      position: absolute;
-      left: calc(100% + 5px);
-      top: 50%;
-    }
-  }
-  &-labes {
-    max-width: 300px;
-  }
-  &-label {
-    background: var(--bg-character-label);
-    padding: 1em;
-    color: var(--color-character-label);
-    border-radius: 10px;
-  }
-}
-.learn-more {
-  grid-area: learn-more;
-  // border: 1px solid red;
-  display: flex;
-  align-items: flex-end;
-  font-size: 25px;
-  text-transform: uppercase;
-  background-image: url('../images/learn-more.svg');
-  background-repeat: no-repeat;
-  background-position: left 170px bottom 5px;
-}
-
-
-@media screen and (max-width: 1440px) {
-  .grid {
-    column-gap: 2m;
-  }
-}
-
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1024px) {
   body {
-    background-position: left 50px top;
-  }
-  .grid {
-    height: auto;
-    width: calc(100vw - 2em);
-    padding: 2em;
-    margin: 0 auto;
-    column-gap: 1em;
-    grid-template-columns: 50px 1fr 1fr;
-    grid-template-rows: repeat(6, auto);
-    grid-template-areas: "logo logo logo"
-                          "name avatar avatar"
-                          "name character-name character-name"
-                          "about character-description character-description"
-                          "arrow arrow arrow"
-                          "social social social";
+    background-position: left 200px top;
   }
   .asset {
-    display: none;
+    display: flex;
   }
-  .learn-more { 
-    display: none;
-    // padding-inline-start: 1em;
+  .learn-more {
+    display: flex;
   }
-  .arrow {
-    height: 50px;
-    background-position: center;
-    user-select: none;
+  // .character-name h2::after {
+  //   top: 50%;
+  //   left: revert;
+  //   margin-left: 5px;
+  // }
+  .character-name-container {
+    justify-content: start;
   }
-  .logo {
-    max-width: 100%;
-  }
-  .character-name {
-    text-align: center;
-    &-container {
-      justify-content: center;
-      margin-top: 1em;
-    }
-    h2::after {
-      left: 0;
-      top: calc(100% - 20px);
-    }
-  }
-  .social {
-    text-align: center;
-    margin-top: 2em;
-    a {
-      margin-left: 2em;
-      &:first-child {
-        margin-left: 0;
-      }
-    }
+  .grid {
+    column-gap: 4em;
+    grid-template-columns: 50px 1fr 1fr 200px;
+    grid-template-rows: 230px 200px 1fr 1fr;
+    grid-template-areas: "asset-top logo logo social"
+                          "name character-name avatar avatar"
+                          "about character-description avatar avatar"
+                          "asset-bottom learn-more arrow other-line" 
   }
 }
