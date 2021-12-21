@@ -10,10 +10,6 @@ $loadNext.addEventListener('click', async () => {
   new Character(characterData)
 })
 
-
-
-
-
 async function initApp(initCharacterId) {
   const characterData = await api.getCharacter(initCharacterId)
   console.log(characterData)
