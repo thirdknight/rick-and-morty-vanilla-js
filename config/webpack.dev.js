@@ -7,7 +7,7 @@ const devConfig = {
   devServer: {
     port: 3000,
     // contentBase: "../dist",
-    static: "../dist",
+    static: "../build",
     // open: "true",
     // open: "chrome",
     open: "/",
