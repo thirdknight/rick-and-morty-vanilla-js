@@ -8,9 +8,9 @@ module.exports = {
   entry: "./src/index.js",
   output:  {
     path: path.resolve(__dirname, "../dist"),
-    // filename: "[name].[contenthash].js",
+    filename: "[name].[contenthash].js",
     assetModuleFilename: "images/[name][ext][query]",
-    filename: "[name].js",
+    // filename: "[name].js",
     publicPath: "",
   },
   module: {
